@@ -8,7 +8,7 @@ Sources and Slides of my Vega / Vega-lite quickie
 
 ## Vega demo
 
-Demo (final state) is [here](viz)
+Demo (final state) is [here](docs)
 
 ## Documentation & examples
 
