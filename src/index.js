@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import VegaLite from 'react-vega-lite';
+import HJSon from 'hjson';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+async function render(){
+  const response = await fetch("/spec.hjson");
+  const spec = HJSon.parse(await response.text());  
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  ReactDOM.render(
+    <VegaLite spec={spec} />,
+    document.getElementById('root')
+  );
+}
+
+render();
